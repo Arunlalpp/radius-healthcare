@@ -92,33 +92,39 @@ async function main() {
   }
 
   const server = await startServer();
-  const { port } = server.address();
-
-  const browser = await chromium.launch();
   try {
-    const page = await browser.newPage({ viewport: { width: 1440, height: 900 } });
-    await page.emulateMedia({ reducedMotion: "reduce" });
+    const { port } = server.address();
+    const browser = await chromium.launch();
+    try {
+      const page = await browser.newPage({ viewport: { width: 1440, height: 900 } });
+      await page.emulateMedia({ reducedMotion: "reduce" });
 
-    for (const route of routes) {
-      await page.goto(`http://127.0.0.1:${port}${route.path}`, { waitUntil: "networkidle" });
-      // Let effects that run post-mount (GSAP context setup, counters settling) flush.
-      await page.waitForTimeout(300);
+      for (const route of routes) {
+        await page.goto(`http://127.0.0.1:${port}${route.path}`, { waitUntil: "networkidle" });
+        // Let effects that run post-mount (GSAP context setup, counters settling) flush.
+        await page.waitForTimeout(300);
 
-      const rootHtml = await page.$eval("#root", (el) => el.outerHTML);
-      const outHtml = withRouteMeta(template.replace('<div id="root"></div>', rootHtml), route);
+        const rootHtml = await page.$eval("#root", (el) => el.outerHTML);
+        const outHtml = withRouteMeta(template.replace('<div id="root"></div>', rootHtml), route);
 
-      const outPath = join(distDir, route.outFile);
-      await mkdir(dirname(outPath), { recursive: true });
-      await writeFile(outPath, outHtml, "utf-8");
-      console.log(`prerender: ${route.path} -> dist/${route.outFile} (${(rootHtml.length / 1024).toFixed(1)} KB)`);
+        const outPath = join(distDir, route.outFile);
+        await mkdir(dirname(outPath), { recursive: true });
+        await writeFile(outPath, outHtml, "utf-8");
+        console.log(`prerender: ${route.path} -> dist/${route.outFile} (${(rootHtml.length / 1024).toFixed(1)} KB)`);
+      }
+    } finally {
+      await browser.close();
     }
   } finally {
-    await browser.close();
     server.close();
   }
 }
 
 main().catch((err) => {
-  console.error("prerender failed:", err);
-  process.exit(1);
+  // This step is a progressive enhancement (crawler-visible static HTML) on
+  // top of the already-working client-rendered SPA in dist/. If a headless
+  // browser isn't available in this build environment, fall back to plain
+  // client rendering rather than failing the whole deployment.
+  console.warn("prerender: skipped —", err.message ?? err);
+  process.exit(0);
 });
