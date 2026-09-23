@@ -8,8 +8,12 @@ import { WhyRadius } from "../components/WhyRadius";
 import { AppointmentForm } from "../components/AppointmentForm";
 import { Testimonials } from "../components/Testimonials";
 import { Contact } from "../components/Contact";
+import { usePageMeta } from "../hooks/usePageMeta";
+import { pageMeta } from "../data/content";
 
 export function Home() {
+  usePageMeta(pageMeta.home.title, pageMeta.home.description);
+
   return (
     <>
       <Hero />

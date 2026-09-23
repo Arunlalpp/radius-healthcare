@@ -5,6 +5,22 @@
  * imagery (Unsplash) standing in for real clinic photography.
  */
 
+export const pageMeta = {
+  home: {
+    title: "Radius Health Centre | Multi-Speciality Polyclinic in Vengara, Malappuram",
+    description:
+      "Radius Health Centre, Vengara — a multi-speciality polyclinic with a hyper-pharmacy, fully automated lab and imaging facilities. Quality, patient-centric healthcare accessible to all. Book an appointment today.",
+  },
+  privacyPolicy: {
+    title: "Privacy Policy | Radius Health Centre",
+    description: "How Radius Health Centre collects, uses, and protects information submitted through this website.",
+  },
+  termsConditions: {
+    title: "Terms & Conditions | Radius Health Centre",
+    description: "The terms that govern use of the Radius Health Centre website and its appointment request form.",
+  },
+};
+
 export const nav = [
   { label: "Home", href: "/#home" },
   { label: "About", href: "/#about" },

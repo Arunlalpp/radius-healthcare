@@ -2,6 +2,7 @@ import { Routes, Route } from "react-router-dom";
 import { Header } from "./components/Header";
 import { Footer } from "./components/Footer";
 import { ScrollToTop } from "./components/ScrollToTop";
+import { Preloader } from "./components/Preloader";
 import { Home } from "./pages/Home";
 import { PrivacyPolicy } from "./pages/PrivacyPolicy";
 import { TermsConditions } from "./pages/TermsConditions";
@@ -9,6 +10,7 @@ import { TermsConditions } from "./pages/TermsConditions";
 function App() {
   return (
     <>
+      <Preloader />
       <ScrollToTop />
       <Header />
       <main>

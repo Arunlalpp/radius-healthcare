@@ -12,7 +12,10 @@ import { chromium } from "playwright";
 
 const root = fileURLToPath(new URL("..", import.meta.url));
 const distDir = join(root, "dist");
-const siteUrl = "https://www.radiushealth.in";
+// NOTE: pointed at the live Vercel URL for now so social previews work on
+// the current demo link. Swap back to "https://www.radiushealth.in" once
+// this deploys to the real domain.
+const siteUrl = "https://radius-healthcare.vercel.app";
 
 const routes = [
   {

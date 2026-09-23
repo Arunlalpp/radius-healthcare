@@ -1,10 +1,13 @@
 import { LegalHero } from "../components/LegalHero";
-import { contact } from "../data/content";
+import { contact, pageMeta } from "../data/content";
+import { usePageMeta } from "../hooks/usePageMeta";
 
 const h2 = "mt-10 text-xl font-display font-bold text-ink-900 first:mt-0";
 const p = "mt-3 text-[15px] leading-relaxed text-ink-600";
 
 export function TermsConditions() {
+  usePageMeta(pageMeta.termsConditions.title, pageMeta.termsConditions.description);
+
   return (
     <>
       <LegalHero eyebrow="Legal" title="Terms & Conditions" updated="23 September 2026" />

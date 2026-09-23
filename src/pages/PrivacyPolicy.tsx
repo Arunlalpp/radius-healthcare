@@ -1,11 +1,14 @@
 import { LegalHero } from "../components/LegalHero";
-import { contact } from "../data/content";
+import { contact, pageMeta } from "../data/content";
+import { usePageMeta } from "../hooks/usePageMeta";
 
 const h2 = "mt-10 text-xl font-display font-bold text-ink-900 first:mt-0";
 const p = "mt-3 text-[15px] leading-relaxed text-ink-600";
 const ul = "mt-3 list-disc space-y-1.5 pl-5 text-[15px] leading-relaxed text-ink-600";
 
 export function PrivacyPolicy() {
+  usePageMeta(pageMeta.privacyPolicy.title, pageMeta.privacyPolicy.description);
+
   return (
     <>
       <LegalHero eyebrow="Legal" title="Privacy Policy" updated="23 September 2026" />
