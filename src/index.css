@@ -1,0 +1,132 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Inter", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-display: "Manrope", "Inter", system-ui, sans-serif;
+
+  /* Radius brand — magenta from the live radiushealth.in identity */
+  --color-brand-50: #fbf1f7;
+  --color-brand-100: #f6e0ec;
+  --color-brand-200: #ebbcd6;
+  --color-brand-300: #dd8dba;
+  --color-brand-400: #ce5c9c;
+  --color-brand-500: #cc5698;
+  --color-brand-600: #bd3983;
+  --color-brand-700: #932c66;
+  --color-brand-800: #752351;
+  --color-brand-900: #5e1c41;
+  --color-brand-950: #3c122a;
+
+  /* Radius secondary — the teal petal accent from the same logo mark */
+  --color-teal-50: #f2f9fa;
+  --color-teal-100: #e1f1f4;
+  --color-teal-200: #c0e1e7;
+  --color-teal-300: #94ccd6;
+  --color-teal-400: #66b6c5;
+  --color-teal-500: #8ecad4;
+  --color-teal-600: #67b7c5;
+  --color-teal-700: #419aa9;
+  --color-teal-800: #337a87;
+  --color-teal-900: #29636d;
+  --color-teal-950: #1b3f45;
+
+  /* warm ink + paper, softer than pure black/white */
+  --color-ink-50: #f7f7f6;
+  --color-ink-100: #eeeeec;
+  --color-ink-200: #dcdcd8;
+  --color-ink-300: #b9b9b3;
+  --color-ink-400: #8d8d86;
+  --color-ink-500: #6b6b64;
+  --color-ink-600: #52524c;
+  --color-ink-700: #3d3d38;
+  --color-ink-800: #26261f;
+  --color-ink-900: #17170f;
+  --color-ink-950: #0d0d09;
+
+  --color-paper: #fbfaf7;
+
+  --shadow-soft: 0 2px 8px -2px rgb(60 18 42 / 0.08), 0 8px 24px -8px rgb(60 18 42 / 0.10);
+  --shadow-card: 0 1px 2px rgb(60 18 42 / 0.04), 0 12px 32px -12px rgb(60 18 42 / 0.16);
+  --shadow-lift: 0 20px 48px -16px rgb(60 18 42 / 0.24);
+
+  --animate-marquee: marquee 32s linear infinite;
+
+  @keyframes marquee {
+    from { transform: translateX(0); }
+    to { transform: translateX(-50%); }
+  }
+}
+
+@layer base {
+  * {
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+      scroll-behavior: auto !important;
+    }
+  }
+
+  body {
+    @apply bg-paper text-ink-800 font-sans antialiased;
+    font-feature-settings: "cv11", "ss01";
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    overflow-x: hidden;
+  }
+
+  h1, h2, h3, h4 {
+    @apply font-display text-ink-900;
+    letter-spacing: -0.02em;
+  }
+
+  ::selection {
+    background: var(--color-brand-200);
+    color: var(--color-brand-950);
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--color-brand-500);
+    outline-offset: 3px;
+    border-radius: 4px;
+  }
+
+  img {
+    @apply select-none;
+  }
+}
+
+@layer utilities {
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+  .no-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+
+  .container-px {
+    @apply px-5 sm:px-8 lg:px-12 xl:px-16;
+  }
+
+  .safe-top {
+    padding-top: env(safe-area-inset-top);
+  }
+  .safe-bottom {
+    padding-bottom: env(safe-area-inset-bottom);
+  }
+}
