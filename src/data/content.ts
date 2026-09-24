@@ -215,6 +215,8 @@ export const contact = {
     { label: "Lab", value: "75928 52664" },
   ],
   email: "radiuspolyclinic@gmail.com",
+  /** WhatsApp number in international format, digits only (used for wa.me links). */
+  whatsapp: "917558852664",
   mapEmbedUrl:
     "https://www.google.com/maps/embed/v1/place?key=AIzaSyAOVYRIgupAurZup5y1PRh8Ismb1A3lLao&q=Radius%20Health%20Centre%20Vengara%2C%20Kacheripadi%2C%20Vengara%2C%20Kerala%20676304&zoom=15&maptype=roadmap",
   instagram: "https://www.instagram.com/radius_health_centre_/?hl=en",
