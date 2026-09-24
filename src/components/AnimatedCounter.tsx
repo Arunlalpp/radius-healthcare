@@ -44,9 +44,17 @@ export function AnimatedCounter({ value, suffix = "", prefix = "", duration = 1.
 
   return (
     <span ref={ref} className={className}>
-      {prefix}
-      {display.toLocaleString("en-IN")}
-      {suffix}
+      {/* Final value stays in the DOM so crawlers (which don't scroll) never read the mid-animation 0. */}
+      <span className="sr-only">
+        {prefix}
+        {value.toLocaleString("en-IN")}
+        {suffix}
+      </span>
+      <span aria-hidden="true">
+        {prefix}
+        {display.toLocaleString("en-IN")}
+        {suffix}
+      </span>
     </span>
   );
 }

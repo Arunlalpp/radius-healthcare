@@ -62,7 +62,7 @@ export function Hero() {
   }, [reducedMotion]);
 
   return (
-    <section id="home" ref={rootRef} className="relative isolate min-h-[92vh] sm:min-h-screen overflow-hidden bg-ink-950">
+    <section id="home" ref={rootRef} className="relative isolate min-h-[min(92vh,56rem)] sm:min-h-[min(100vh,56rem)] overflow-hidden bg-ink-950">
       <div className="absolute inset-0 overflow-hidden">
         <img
           ref={imgRef}
@@ -90,7 +90,7 @@ export function Hero() {
         className="pointer-events-none absolute top-1/3 left-[6%] hidden sm:block h-20 w-20 rounded-full border border-white/15"
       />
 
-      <div className="relative z-10 flex min-h-[92vh] sm:min-h-screen items-center">
+      <div className="relative z-10 flex min-h-[min(92vh,56rem)] sm:min-h-[min(100vh,56rem)] items-center">
         <div className="container-px w-full pt-28 pb-20 sm:pt-32">
           <div className="max-w-2xl">
             <span
