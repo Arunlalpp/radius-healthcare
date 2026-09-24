@@ -1,3 +1,9 @@
 {
+  "redirects": [
+    { "source": "/privacypolicy", "destination": "/privacy-policy", "permanent": true },
+    { "source": "/termsconditions", "destination": "/terms-conditions", "permanent": true },
+    { "source": "/about", "destination": "/#about", "permanent": true },
+    { "source": "/contact", "destination": "/#contact", "permanent": true }
+  ],
   "rewrites": [{ "source": "/(.*)", "destination": "/index.html" }]
 }
