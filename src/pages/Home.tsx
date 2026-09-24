@@ -7,6 +7,7 @@ import { Departments } from "../components/Departments";
 import { WhyRadius } from "../components/WhyRadius";
 import { AppointmentForm } from "../components/AppointmentForm";
 import { Testimonials } from "../components/Testimonials";
+import { InstagramFeed } from "../components/InstagramFeed";
 import { Contact } from "../components/Contact";
 import { usePageMeta } from "../hooks/usePageMeta";
 import { pageMeta } from "../data/content";
@@ -31,6 +32,7 @@ export function Home() {
       <WhyRadius />
       <AppointmentForm />
       <Testimonials />
+      <InstagramFeed />
       <Contact />
     </>
   );

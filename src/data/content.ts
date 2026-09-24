@@ -220,6 +220,17 @@ export const contact = {
   instagram: "https://www.instagram.com/radius_health_centre_/?hl=en",
 };
 
+export const instagramPosts: { image: string; alt: string; href?: string }[] = [
+  { image: "/images/instagram/post-1.jpg", alt: "Advanced ultrasound scanning now available at Radius Health Centre" },
+  { image: "/images/instagram/post-2.jpg", alt: "World Alzheimer's Day: know the signs earlier" },
+  { image: "/images/instagram/post-3.jpg", alt: "Paediatrics: understanding why babies cry" },
+  { image: "/images/instagram/post-4.jpg", alt: "Nephrology awareness: what tears in the eye can signal" },
+  { image: "/images/instagram/post-5.jpg", alt: "Urology awareness: drinking water and kidney stones" },
+  { image: "/images/instagram/post-6.jpg", alt: "ENT awareness: steam inhalation and sinusitis" },
+  { image: "/images/instagram/post-7.jpg", alt: "Awareness post on red rashes and tomato fever in children" },
+  { image: "/images/instagram/post-8.jpg", alt: "Independence Day greetings from the Radius Health Centre team" },
+];
+
 export const footer = {
   description:
     "A multi-speciality polyclinic with a hyper-pharmacy, fully automated lab and imaging facilities — bringing quality, patient-centric healthcare to the community.",
