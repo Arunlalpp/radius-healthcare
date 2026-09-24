@@ -86,7 +86,12 @@
     text-rendering: optimizeLegibility;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-    overflow-x: hidden;
+    overflow-x: clip;
+  }
+
+  html {
+    /* clip (not hidden) so off-screen reveal offsets can't create sideways scroll on mobile */
+    overflow-x: clip;
   }
 
   h1, h2, h3, h4 {
