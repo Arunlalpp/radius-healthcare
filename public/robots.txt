@@ -1,4 +1,6 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://www.radiushealth.in/sitemap.xml
+# NOTE: pointing at the live Vercel URL for now — swap back to
+# https://www.radiushealth.in/sitemap.xml once that domain goes live.
+Sitemap: https://radius-healthcare.vercel.app/sitemap.xml
